@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import {addUser} from '../redux/userSlice.js';
-import { useNavigate } from 'react-router';
+import { addUser } from '../redux/userSlice.js';
+import { Link, useNavigate } from 'react-router';
 
 const Login = () => {
-  const [email, setEmail] = useState("laxmi@yopmail.com");
-  const [password, setPassword] = useState("Laxmi@123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -14,14 +14,14 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post("http://localhost:7777/login", {
-        emailId:email, password
-      },{
-        withCredentials:true
+        emailId: email, password
+      }, {
+        withCredentials: true
       });
       dispatch(addUser(response.data));
       navigate("/")
     } catch (err) {
-      setError(err?.response?.data ?? "Something Went Wrong" )
+      setError(err?.response?.data ?? "Something Went Wrong")
       console.log(err);
     }
   }
@@ -46,6 +46,7 @@ const Login = () => {
         <div className="card-actions justify-center">
           <button className="btn btn-primary" onClick={handleLogin}>Login</button>
         </div>
+      <Link to={'/signup'}>New User? SignUp Here</Link>
       </div>
     </div></div>
   )
