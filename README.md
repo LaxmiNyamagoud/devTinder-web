@@ -14,7 +14,7 @@ Server & Deployment: AWS EC2, Nginx, PM2
 - Signup on AWS
 - Launch EC2 instance
 - chmod 400 <secret>.pem
-- ssh -i "devTinder-secret.pem" ubuntu@ec2-43-204-96-49.ap-south-1.compute.amazonaws.com
+- ssh -i "<your-key-file>.pem" ubuntu@<your-ec2-public-dns>
 - Install Node version 16.17.0
 - Git clone
 - Frontend    
@@ -38,7 +38,9 @@ Server & Deployment: AWS EC2, Nginx, PM2
     - Modify the BASEURL in frontend project to "/api"
 
 - Nginx Config : 
+
     Frontend = http://43.204.96.49/
+    
     Backend = http://43.204.96.49:7777/
 
     Domain name = devtinder.com => 43.204.96.49
