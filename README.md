@@ -3,8 +3,11 @@ DevTinder is a modern web application designed to help developers connect, colla
 
 # Technology Stack
 Frontend: React
+
 Backend: Node.js, Express.js
+
 Database: MongoDB Atlas
+
 Server & Deployment: AWS EC2, Nginx, PM2
 
 # Deployment
@@ -60,14 +63,4 @@ Server & Deployment: AWS EC2, Nginx, PM2
 const BASE_URL = "/api";
 
 # Request Flow
-User → devtinder.com/api/login
-       ↓
-Nginx receives request
-       ↓
-Forwards to http://localhost:7777/login
-       ↓
-Backend processes it
-       ↓
-Response goes back through Nginx
-       ↓
-User receives response
+![alt text](image.png)
